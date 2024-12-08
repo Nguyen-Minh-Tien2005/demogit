@@ -14,8 +14,8 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        TaiKhoangCuaNguoiDung tK = new TaiKhoangCuaNguoiDung();
-        tK.xuatMenuCuaTaiKhoanCuaNguoiDung();
+        TaiKhoan tK = new TaiKhoan();
+        tK.xuatMenu();
     }
     
 }

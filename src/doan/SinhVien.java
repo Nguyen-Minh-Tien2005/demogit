@@ -17,8 +17,7 @@ import java.util.Scanner;
  *
  * @author NGUYEN MINH TIEN
  */
-public class SinhVien extends TaiKhoangCuaNguoiDung implements ThongTinNguoiDung{
-    private  int sTT;
+public class SinhVien extends TaiKhoan implements ThongTinNguoiDung{
     private String hoVaTen;
     private String mSSV;
     private String nganh;
@@ -31,24 +30,14 @@ public class SinhVien extends TaiKhoangCuaNguoiDung implements ThongTinNguoiDung
        
     }
 
-    public SinhVien(int sTT, String hoVaTen, String mSSV, String nganh) {
-        this.sTT = sTT;
-        this.hoVaTen = hoVaTen;
-        this.mSSV = mSSV;
-        this.nganh = nganh;
-    }
-
-    public SinhVien(int sTT, String hoVaTen, String mSSV, String nganh, String tenDangNhap, String matKhau) {
+    public SinhVien( String tenDangNhap, String matKhau,String hoVaTen, String mSSV, String nganh) {
         super(tenDangNhap, matKhau);
-        this.sTT = sTT;
         this.hoVaTen = hoVaTen;
         this.mSSV = mSSV;
         this.nganh = nganh;
     }
     
-    public void setsTT(int sTT) {
-        this.sTT = sTT;
-    }
+   
 
     public String getHoVaTen() {
         return hoVaTen;
@@ -60,6 +49,14 @@ public class SinhVien extends TaiKhoangCuaNguoiDung implements ThongTinNguoiDung
 
     public String getNganh() {
         return nganh;
+    }
+
+    public String getTenDangNhap() {
+        return tenDangNhap;
+    }
+
+    public String getMatKhau() {
+        return matKhau;
     }
     
     @Override
@@ -94,7 +91,9 @@ public class SinhVien extends TaiKhoangCuaNguoiDung implements ThongTinNguoiDung
     
     public void xuatMenuCuaSinhVien(){
         Scanner sc =new Scanner(System.in);
-        System.out.println("\n2. Xuat thoi khoa bieu"
+        System.out.println(
+                  "\n3. Tim lop"
+                + "\n2. Xuat thoi khoa bieu"
                 + "\n1. Xuat thong tin ca nhan"
                 + "\n0. Thoat");
         int soCanThucHien;
@@ -104,18 +103,19 @@ public class SinhVien extends TaiKhoangCuaNguoiDung implements ThongTinNguoiDung
                 System.out.println("\nNhap lua chon cua ban:");
                 soCanThucHien = Integer.parseInt(sc.nextLine());
                 if(!(0>soCanThucHien || soCanThucHien>3)){
-                    System.out.println("Vui long nhap trong pham vi");
                     break;
-                }
+                }else
+                    System.out.println("Vui long nhap trong pham vi");
             }catch(Exception e){
                 System.out.println("Vui long nhap so nguyen");
             }
         }
         ThoiKhoaBieu tKB = new ThoiKhoaBieu(tenDangNhap, matKhau);
         switch(soCanThucHien){
-            case 2: tKB.xuatDanhSachThongTinCuaThoiKhoaBieu(); break;
+            case 3: tKB.timLop();break;
+            case 2: tKB.xuatThoiKhoaBieu(); break;
             case 1: xuatThongTinCaNhan(); break;
-            case 0: xuatMenuCuaTaiKhoanCuaNguoiDung(); break;
+            case 0: xuatMenu(); break;
         }
     }
     
@@ -123,4 +123,6 @@ public class SinhVien extends TaiKhoangCuaNguoiDung implements ThongTinNguoiDung
 
         return String.format("%-30s %-30s %-30s %-30s", hoVaTen, mSSV, nganh, tenDangNhap);
     }
+    
+    
 }

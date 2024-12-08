@@ -26,6 +26,54 @@ public class BuoiHoc {
         this.phong = phong;
         this.ngayLenLop = ngayLenLop;
     }
+
+    public int getSoThuTu() {
+        return soThuTu;
+    }
+
+    public void setSoThuTu(int soThuTu) {
+        this.soThuTu = soThuTu;
+    }
+
+    public String getLop() {
+        return lop;
+    }
+
+    public void setLop(String lop) {
+        this.lop = lop;
+    }
+
+    public String getTenLop() {
+        return tenLop;
+    }
+
+    public void setTenLop(String tenLop) {
+        this.tenLop = tenLop;
+    }
+
+    public String getNgayVaGio() {
+        return ngayVaGio;
+    }
+
+    public void setNgayVaGio(String ngayVaGio) {
+        this.ngayVaGio = ngayVaGio;
+    }
+
+    public String getPhong() {
+        return phong;
+    }
+
+    public void setPhong(String phong) {
+        this.phong = phong;
+    }
+
+    public String getNgayLenLop() {
+        return ngayLenLop;
+    }
+
+    public void setNgayLenLop(String ngayLenLop) {
+        this.ngayLenLop = ngayLenLop;
+    }
     
     public static void intieuDe(){
         System.out.println("\t\t\t\t\t\t\t\t\tTHOI KHOA BIEU");
