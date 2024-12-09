@@ -148,7 +148,7 @@ public class ThoiKhoaBieu {
                 File file = new File("ThoiKhoaBieu.txt");
                 FileWriter fR = new FileWriter(file,true);
                 PrintWriter bR = new PrintWriter(fR);
-                bR.println(String.format("%s;%s;%s;%s;%s;%s",soThuTu,lop,tenLop,ngayVaGio,phong,ngayLenLop));
+                bR.println(String.format("%s;%s;%s;%s;%s;%s",++soThuTu,lop,tenLop,ngayVaGio,phong,ngayLenLop));
                 fR.close();
                 bR.close();
                
@@ -173,7 +173,7 @@ public class ThoiKhoaBieu {
     }
     
     public int  capNhatThongTinVaoArrayList(){
-        int soLuongPhanTu=0;
+        int soTTLonNhat=0;
         try{
         File file = new File("ThoiKhoaBieu.txt");
         FileReader fR = new FileReader(file);
@@ -184,14 +184,14 @@ public class ThoiKhoaBieu {
                     continue;
                 String []arr = line.split("[;]+");
                 tKB.add(new BuoiHoc(Integer.parseInt(arr[0]), arr[1], arr[2],arr[3],arr[4],arr[5]));
-                soLuongPhanTu++;
+                soTTLonNhat=(soTTLonNhat<Integer.parseInt(arr[0]))?Integer.parseInt(arr[0]):soTTLonNhat;
             }
         fR.close();
         bR.close();
         }catch(Exception e){
             System.out.println("Khong tim thay file de viet");
         }
-        return soLuongPhanTu;
+        return soTTLonNhat;
     }
     
     
@@ -560,12 +560,19 @@ public class ThoiKhoaBieu {
                     System.out.println("Ban chi duoc nhap y neu la yes hoac n neu la no");
             }
         }
+        boolean suaThanhCong=false;
         for (int i = 0; i < tKB.size(); i++) {
             BuoiHoc bH = tKB.get(i);
             if (bH.getSoThuTu()==Integer.parseInt(sTT)) {
                 tKB.remove(i);
+                suaThanhCong = true;
+                break;
             }
         }
+        if(suaThanhCong)
+            System.out.println("Xoa thanh cong");
+        else
+            System.out.println("Khong tim thay so thu tu de xoa");
         try{
             File file = new File("ThoiKhoaBieu.txt");
             FileWriter fR = new FileWriter(file);
@@ -578,7 +585,7 @@ public class ThoiKhoaBieu {
                         buoiHoc.getNgayVaGio(), buoiHoc.getPhong(), buoiHoc.getNgayLenLop()));
 
             }
-            System.out.println("sua thanh cong");
+            
             fR.close();
             pR.close();
         } 
@@ -1113,4 +1120,3 @@ public class ThoiKhoaBieu {
         gV.xuatMenuCuaGianVien();
     }
 }
-
