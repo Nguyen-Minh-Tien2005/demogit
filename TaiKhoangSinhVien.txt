@@ -1,3 +1,0 @@
-MinhTu@sinhvien;123;Minh Tu;867;Cong nghe thong tin
-sinhvien@sinhvien;123;Minh Tien;123;Cong nghe
-MinhTien@sinhvien;123;Minh Tien;890;Cong nghe

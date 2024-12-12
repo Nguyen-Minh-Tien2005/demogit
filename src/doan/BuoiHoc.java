@@ -77,13 +77,13 @@ public class BuoiHoc {
     
     public static void intieuDe(){
         System.out.println("\t\t\t\t\t\t\t\t\tTHOI KHOA BIEU");
-        System.out.println(String.format("%-10s      %-10s          %-45s     %-50s     %-5s          %-60s",
+        System.out.println(String.format("%-10s      %-15s          %-45s     %-50s     %-5s          %-60s",
                 "So thu tu","Lop","Ten lop","Ngay va gio","Phong","Ngay len lop"));
     }
             
     @Override
     public String toString(){
-        return String.format("%-5d           %-10s          %-45s     %-50s     %-5s          %-60s",
+        return String.format("%-5d           %-15s          %-45s     %-50s     %-5s          %-60s",
                 soThuTu,lop,tenLop,ngayVaGio,phong,ngayLenLop);
     }
 }

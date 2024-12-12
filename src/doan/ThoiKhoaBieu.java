@@ -23,9 +23,9 @@ import java.util.Scanner;
  * @author NGUYEN MINH TIEN
  */
 public class ThoiKhoaBieu {
-    protected String tenDangNhap;
-    protected String matKhau;
-    ArrayList<BuoiHoc> tKB = new ArrayList<BuoiHoc>();
+    private String tenDangNhap;
+    private String matKhau;
+    private ArrayList<BuoiHoc> tKB = new ArrayList<BuoiHoc>();
 
     public ThoiKhoaBieu(String tenDangNhap, String matKhau) {
         this.tenDangNhap = tenDangNhap;
@@ -46,8 +46,8 @@ public class ThoiKhoaBieu {
                         System.out.println("Co the ban dang muon thoat(y/n)");
                         String yOrN = sc.nextLine();
                         if(yOrN.equalsIgnoreCase("y")){
-                            GiangVien gV = new GiangVien(tenDangNhap, matKhau);
-                            gV.xuatMenuCuaGianVien();
+                            Menu m = new Menu(tenDangNhap, matKhau);
+                            m.xuatMenuCuaGVHoacSinhVien();
                             return;
                         }else if(yOrN.equalsIgnoreCase("n")){
                             System.out.println("Vui long nhap ky tu");
@@ -69,8 +69,8 @@ public class ThoiKhoaBieu {
                         System.out.println("Co the ban dang muon thoat(y/n)");
                         String yOrN = sc.nextLine();
                         if(yOrN.equalsIgnoreCase("y")){
-                            GiangVien gV = new GiangVien(tenDangNhap, matKhau);
-                            gV.xuatMenuCuaGianVien();
+                            Menu m = new Menu(tenDangNhap, matKhau);
+                            m.xuatMenuCuaGVHoacSinhVien();
                             return;
                         }else if(yOrN.equalsIgnoreCase("n")){
                             System.out.println("Vui long nhap ky tu");
@@ -91,8 +91,8 @@ public class ThoiKhoaBieu {
                         System.out.println("Co the ban dang muon thoat(y/n)");
                         String yOrN = sc.nextLine();
                         if(yOrN.equalsIgnoreCase("y")){
-                            GiangVien gV = new GiangVien(tenDangNhap, matKhau);
-                            gV.xuatMenuCuaGianVien();
+                            Menu m = new Menu(tenDangNhap, matKhau);
+                            m.xuatMenuCuaGVHoacSinhVien();
                             return;
                         }else if(yOrN.equalsIgnoreCase("n")){
                             System.out.println("Vui long nhap ky tu");
@@ -113,8 +113,8 @@ public class ThoiKhoaBieu {
                         System.out.println("Co the ban dang muon thoat(y/n)");
                         String yOrN = sc.nextLine();
                         if(yOrN.equalsIgnoreCase("y")){
-                            GiangVien gV = new GiangVien(tenDangNhap, matKhau);
-                            gV.xuatMenuCuaGianVien();
+                            Menu m = new Menu(tenDangNhap, matKhau);
+                            m.xuatMenuCuaGVHoacSinhVien();
                             return;
                         }else if(yOrN.equalsIgnoreCase("n")){
                             System.out.println("Vui long nhap ky tu");
@@ -135,8 +135,8 @@ public class ThoiKhoaBieu {
                         System.out.println("Co the ban dang muon thoat(y/n)");
                         String yOrN = sc.nextLine();
                         if(yOrN.equalsIgnoreCase("y")){
-                            GiangVien gV = new GiangVien(tenDangNhap, matKhau);
-                            gV.xuatMenuCuaGianVien();
+                            Menu m = new Menu(tenDangNhap, matKhau);
+                            m.xuatMenuCuaGVHoacSinhVien();
                             return;
                         }else if(yOrN.equalsIgnoreCase("n")){
                             System.out.println("Vui long nhap ky tu");
@@ -160,8 +160,8 @@ public class ThoiKhoaBieu {
                         break;
                     }else if(yOrN.equalsIgnoreCase("n")){
                         capNhatThongTinVaoArrayList();
-                        GiangVien gV = new GiangVien(tenDangNhap, matKhau);
-                        gV.xuatMenuCuaGianVien();
+                        Menu m = new Menu(tenDangNhap, matKhau);
+                        m.xuatMenuCuaGVHoacSinhVien();
                     }else
                         System.out.println("Ban chi duoc nhap y neu la yes hoac n neu la no");
                 }
@@ -205,15 +205,15 @@ public class ThoiKhoaBieu {
         }
         System.out.println("Xuat thanh cong thoi khoa bieu");
         if(tenDangNhap.endsWith("@sinhvien")){
-            SinhVien sV = new SinhVien(tenDangNhap, matKhau);
             System.out.println("Neu xem xong ban chi can nhan mot ki tu xong ban chi can an 1 ky tu xong an enter hoac chi can an enter");
             sc.nextLine();
-            sV.xuatMenuCuaSinhVien();
+            Menu m = new Menu(tenDangNhap, matKhau);
+            m.xuatMenuCuaGVHoacSinhVien();
         }else if(tenDangNhap.endsWith("@giangvien")){
-              GiangVien gV = new GiangVien(tenDangNhap, matKhau);
-              System.out.println("Neu xem xong ban chi can nhan mot ki tu xong ban chi can an 1 ky tu xong an enter hoac chi can an enter");
-              sc.nextLine();
-              gV.xuatMenuCuaGianVien();
+            System.out.println("Neu xem xong ban chi can nhan mot ki tu xong ban chi can an 1 ky tu xong an enter hoac chi can an enter");
+            sc.nextLine();
+            Menu m = new Menu(tenDangNhap, matKhau);
+            m.xuatMenuCuaGVHoacSinhVien();
         }
     }
     public boolean coLaSo(String mSSV){
@@ -248,8 +248,8 @@ public class ThoiKhoaBieu {
                 System.out.println("Co the ban dang muon thoat(y/n)");
                 String yOrN = sc.nextLine();
                 if(yOrN.equalsIgnoreCase("y")){
-                    GiangVien gV = new GiangVien(tenDangNhap, matKhau);
-                    gV.xuatMenuCuaGianVien();
+                    Menu m = new Menu(tenDangNhap, matKhau);
+                    m.xuatMenuCuaGVHoacSinhVien();
                     return;
                 }else if(yOrN.equalsIgnoreCase("n")){
                     System.out.println("Vui long nhap ky tu");
@@ -273,8 +273,8 @@ public class ThoiKhoaBieu {
                         System.out.println("Co the ban dang muon thoat(y/n)");
                         String yOrN = sc.nextLine();
                         if(yOrN.equalsIgnoreCase("y")){
-                            GiangVien gV = new GiangVien(tenDangNhap, matKhau);
-                            gV.xuatMenuCuaGianVien();
+                            Menu m = new Menu(tenDangNhap, matKhau);
+                            m.xuatMenuCuaGVHoacSinhVien();
                             return;
                         }else if(yOrN.equalsIgnoreCase("n")){
                             System.out.println("Vui long nhap ky tu");
@@ -296,8 +296,8 @@ public class ThoiKhoaBieu {
                         System.out.println("Co the ban dang muon thoat(y/n)");
                         String yOrN = sc.nextLine();
                         if(yOrN.equalsIgnoreCase("y")){
-                            GiangVien gV = new GiangVien(tenDangNhap, matKhau);
-                            gV.xuatMenuCuaGianVien();
+                            Menu m = new Menu(tenDangNhap, matKhau);
+                            m.xuatMenuCuaGVHoacSinhVien();
                             return;
                         }else if(yOrN.equalsIgnoreCase("n")){
                             System.out.println("Vui long nhap ky tu");
@@ -318,8 +318,8 @@ public class ThoiKhoaBieu {
                         System.out.println("Co the ban dang muon thoat(y/n)");
                         String yOrN = sc.nextLine();
                         if(yOrN.equalsIgnoreCase("y")){
-                            GiangVien gV = new GiangVien(tenDangNhap, matKhau);
-                            gV.xuatMenuCuaGianVien();
+                            Menu m = new Menu(tenDangNhap, matKhau);
+                            m.xuatMenuCuaGVHoacSinhVien();
                             return;
                         }else if(yOrN.equalsIgnoreCase("n")){
                             System.out.println("Vui long nhap ky tu");
@@ -339,8 +339,8 @@ public class ThoiKhoaBieu {
                         System.out.println("Co the ban dang muon thoat(y/n)");
                         String yOrN = sc.nextLine();
                         if(yOrN.equalsIgnoreCase("y")){
-                            GiangVien gV = new GiangVien(tenDangNhap, matKhau);
-                            gV.xuatMenuCuaGianVien();
+                            Menu m = new Menu(tenDangNhap, matKhau);
+                            m.xuatMenuCuaGVHoacSinhVien();
                             return;
                         }else if(yOrN.equalsIgnoreCase("n")){
                             System.out.println("Vui long nhap ky tu");
@@ -359,8 +359,8 @@ public class ThoiKhoaBieu {
                         System.out.println("Co the ban dang muon thoat(y/n)");
                         String yOrN = sc.nextLine();
                         if(yOrN.equalsIgnoreCase("y")){
-                            GiangVien gV = new GiangVien(tenDangNhap, matKhau);
-                            gV.xuatMenuCuaGianVien();
+                            Menu m = new Menu(tenDangNhap, matKhau);
+                            m.xuatMenuCuaGVHoacSinhVien();
                             return;
                         }else if(yOrN.equalsIgnoreCase("n")){
                             System.out.println("Vui long nhap ky tu");
@@ -381,6 +381,19 @@ public class ThoiKhoaBieu {
         if (!found) 
         {
             System.out.println("Khong tim thay lop hoc hoac mon hoc can sua.");
+            while(true){
+                System.out.println("Ban muon tiep sua(y,n):");
+                String coNhapLai = sc.nextLine();
+                if(coNhapLai.equalsIgnoreCase("y")){
+                    suaThongTin();
+                    return;
+                }else if(coNhapLai.equalsIgnoreCase("n")){
+                    Menu m = new Menu(tenDangNhap, matKhau);
+                    m.xuatMenuCuaGVHoacSinhVien();
+                    return;
+                }else
+                    System.out.println("Ban chi duoc nhap y neu la yes hoac n neu la no");
+            }
         } 
         else 
         {
@@ -399,16 +412,27 @@ public class ThoiKhoaBieu {
                 System.out.println("Sua thanh cong");
                 fR.close();
                 pR.close();
+                
+                while(true){
+                System.out.println("Ban muon tiep sua(y,n):");
+                String coNhapLai = sc.nextLine();
+                if(coNhapLai.equalsIgnoreCase("y")){
+                    suaThongTin();
+                    return;
+                }else if(coNhapLai.equalsIgnoreCase("n")){
+                    Menu m = new Menu(tenDangNhap, matKhau);
+                    m.xuatMenuCuaGVHoacSinhVien();
+                    return;
+                }else
+                    System.out.println("Ban chi duoc nhap y neu la yes hoac n neu la no");
+                }
             } 
             catch (Exception e) 
             {
                 System.out.println("Khong the ghi du lieu vao file.");
             }
         }
-        System.out.println("Neu xem xong ban chi can nhan mot ki tu xong ban chi can an 1 ky tu xong an enter hoac chi can an enter");
-        sc.nextLine();
-        GiangVien gV = new GiangVien(tenDangNhap, matKhau);
-        gV.xuatMenuCuaGianVien();
+        
     }
     
     public void timLop(){
@@ -428,11 +452,11 @@ public class ThoiKhoaBieu {
                 String yOrN = sc.nextLine();
                 if(yOrN.equalsIgnoreCase("y")){
                     if(tenDangNhap.endsWith("@sinhvien")){
-                        SinhVien sV = new SinhVien(tenDangNhap, matKhau);
-                        sV.xuatMenuCuaSinhVien();
+                        Menu m = new Menu(tenDangNhap, matKhau);
+                        m.xuatMenuCuaGVHoacSinhVien();
                     }else if(tenDangNhap.endsWith("@giangvien")){
-                        GiangVien gV = new GiangVien(tenDangNhap, matKhau);
-                        gV.xuatMenuCuaGianVien();
+                        Menu m = new Menu(tenDangNhap, matKhau);
+                        m.xuatMenuCuaGVHoacSinhVien();
                     }  
                     return;
                 }else if(yOrN.equalsIgnoreCase("n")){
@@ -443,7 +467,7 @@ public class ThoiKhoaBieu {
             }
         }
         System.out.println("\t\t\t\t\t\t\t\t\tTHONG TIN TIM DUOC TRONG THOI KHOA BIEU");
-        System.out.println(String.format("%-10s      %-10s          %-45s     %-50s     %-5s          %-60s",
+         System.out.println(String.format("%-10s      %-15s          %-45s     %-50s     %-5s          %-60s",
                 "So thu tu","Lop","Ten lop","Ngay va gio","Phong","Ngay len lop"));
         boolean ketQua = false;
         for (int i = 0; i < tKB.size(); i++) {
@@ -454,7 +478,7 @@ public class ThoiKhoaBieu {
             }
         }
         if(ketQua==false)
-            System.out.println("Khong tim thay buoi hoc");
+            System.out.println("Khong tim thay lop");
         while(true){
             System.out.println("Ban muon tiep tuc tim kiem(y,n):");
             String coNhapLai = sc.nextLine();
@@ -463,11 +487,11 @@ public class ThoiKhoaBieu {
                 return;
             }else if(coNhapLai.equalsIgnoreCase("n")){
                 if(tenDangNhap.endsWith("@sinhvien")){
-                    SinhVien sV = new SinhVien(tenDangNhap, matKhau);
-                    sV.xuatMenuCuaSinhVien();
+                    Menu m = new Menu(tenDangNhap, matKhau);
+                    m.xuatMenuCuaGVHoacSinhVien();
                 }else if(tenDangNhap.endsWith("@giangvien")){
-                    GiangVien gV = new GiangVien(tenDangNhap, matKhau);
-                    gV.xuatMenuCuaGianVien();
+                    Menu m = new Menu(tenDangNhap, matKhau);
+                    m.xuatMenuCuaGVHoacSinhVien();
                 }  
                 return;
             }else
@@ -509,8 +533,8 @@ public class ThoiKhoaBieu {
             }
             return;
             }else if(coNhapLai.equalsIgnoreCase("n")){
-                GiangVien gV = new GiangVien(tenDangNhap, matKhau);
-                gV.xuatMenuCuaGianVien();
+                Menu m = new Menu(tenDangNhap, matKhau);
+                m.xuatMenuCuaGVHoacSinhVien();
                 return;
             }else
                 System.out.println("Ban chi duoc nhap y neu la yes hoac n neu la no");
@@ -550,8 +574,8 @@ public class ThoiKhoaBieu {
                 System.out.println("Co the ban dang muon thoat(y/n)");
                 String yOrN = sc.nextLine();
                 if(yOrN.equalsIgnoreCase("y")){
-                    GiangVien gV = new GiangVien(tenDangNhap, matKhau);
-                    gV.xuatMenuCuaGianVien();
+                    Menu m = new Menu(tenDangNhap, matKhau);
+                    m.xuatMenuCuaGVHoacSinhVien();
                     return;
                 }else if(yOrN.equalsIgnoreCase("n")){
                     System.out.println("Vui long nhap ky tu");
@@ -600,8 +624,8 @@ public class ThoiKhoaBieu {
                 xoa("Vi tri cu the");
                 return;
             }else if(coNhapLai.equalsIgnoreCase("n")){
-                GiangVien gV = new GiangVien(tenDangNhap, matKhau);
-                gV.xuatMenuCuaGianVien(); 
+                Menu m = new Menu(tenDangNhap, matKhau);
+                m.xuatMenuCuaGVHoacSinhVien(); 
                 return;
             }else
                 System.out.println("Ban chi duoc nhap y neu la yes hoac n neu la no");
@@ -646,8 +670,8 @@ public class ThoiKhoaBieu {
             System.out.println("Khong the ghi du lieu vao file.");
         }
         System.out.println("Sap xep thanh cong");
-        GiangVien gV = new GiangVien(tenDangNhap, matKhau);
-        gV.xuatMenuCuaGianVien(); 
+        Menu m = new Menu(tenDangNhap, matKhau);
+        m.xuatMenuCuaGVHoacSinhVien(); 
     }
     
         public void sapXepGiamDanTheoSST() 
@@ -689,8 +713,8 @@ public class ThoiKhoaBieu {
             System.out.println("Khong the ghi du lieu vao file.");
         }
         System.out.println("Sap xep thanh cong");
-        GiangVien gV = new GiangVien(tenDangNhap, matKhau);
-        gV.xuatMenuCuaGianVien(); 
+        Menu m = new Menu(tenDangNhap, matKhau);
+        m.xuatMenuCuaGVHoacSinhVien(); 
     }
     
     public void sapXepTangDanTheoLop(){    
@@ -726,8 +750,8 @@ public class ThoiKhoaBieu {
             System.out.println("Khong the ghi du lieu vao file.");
         }
         System.out.println("Sap xep thanh cong");
-        GiangVien gV = new GiangVien(tenDangNhap, matKhau);
-        gV.xuatMenuCuaGianVien(); 
+        Menu m = new Menu(tenDangNhap, matKhau);
+        m.xuatMenuCuaGVHoacSinhVien(); 
     }
     
     public void sapXepGiamDanTheoLop(){    
@@ -763,8 +787,8 @@ public class ThoiKhoaBieu {
             System.out.println("Khong the ghi du lieu vao file.");
         }
         System.out.println("Sap xep thanh cong");
-        GiangVien gV = new GiangVien(tenDangNhap, matKhau);
-        gV.xuatMenuCuaGianVien(); 
+        Menu m = new Menu(tenDangNhap, matKhau);
+        m.xuatMenuCuaGVHoacSinhVien();
     }
     
     public void sapXepTangDanTheoTenLop(){    
@@ -800,8 +824,8 @@ public class ThoiKhoaBieu {
             System.out.println("Khong the ghi du lieu vao file.");
         }
         System.out.println("Sap xep thanh cong");
-        GiangVien gV = new GiangVien(tenDangNhap, matKhau);
-        gV.xuatMenuCuaGianVien(); 
+        Menu m = new Menu(tenDangNhap, matKhau);
+        m.xuatMenuCuaGVHoacSinhVien();
     }
     
     public void sapXepGiamDanTheoTenLop(){    
@@ -837,8 +861,8 @@ public class ThoiKhoaBieu {
             System.out.println("Khong the ghi du lieu vao file.");
         }
         System.out.println("Sap xep thanh cong");
-        GiangVien gV = new GiangVien(tenDangNhap, matKhau);
-        gV.xuatMenuCuaGianVien(); 
+        Menu m = new Menu(tenDangNhap, matKhau);
+        m.xuatMenuCuaGVHoacSinhVien();
     }
     
     public void sapXepTangDanTheoNgayVaGio(){    
@@ -874,8 +898,8 @@ public class ThoiKhoaBieu {
             System.out.println("Khong the ghi du lieu vao file.");
         }
         System.out.println("Sap xep thanh cong");
-        GiangVien gV = new GiangVien(tenDangNhap, matKhau);
-        gV.xuatMenuCuaGianVien(); 
+        Menu m = new Menu(tenDangNhap, matKhau);
+        m.xuatMenuCuaGVHoacSinhVien();
     }
     
     public void sapXepGiamDanTheoNgayVaGio(){    
@@ -911,8 +935,8 @@ public class ThoiKhoaBieu {
             System.out.println("Khong the ghi du lieu vao file.");
         }
         System.out.println("Sap xep thanh cong");
-        GiangVien gV = new GiangVien(tenDangNhap, matKhau);
-        gV.xuatMenuCuaGianVien(); 
+        Menu m = new Menu(tenDangNhap, matKhau);
+        m.xuatMenuCuaGVHoacSinhVien();
     }
     
     public void sapXepTangDanTheoPhong(){    
@@ -948,8 +972,8 @@ public class ThoiKhoaBieu {
             System.out.println("Khong the ghi du lieu vao file.");
         }
         System.out.println("Sap xep thanh cong");
-        GiangVien gV = new GiangVien(tenDangNhap, matKhau);
-        gV.xuatMenuCuaGianVien(); 
+        Menu m = new Menu(tenDangNhap, matKhau);
+        m.xuatMenuCuaGVHoacSinhVien();
     }
     
     public void sapXepGiamDanTheoPhong(){    
@@ -985,8 +1009,8 @@ public class ThoiKhoaBieu {
             System.out.println("Khong the ghi du lieu vao file.");
         }
         System.out.println("Sap xep thanh cong");
-        GiangVien gV = new GiangVien(tenDangNhap, matKhau);
-        gV.xuatMenuCuaGianVien(); 
+        Menu m = new Menu(tenDangNhap, matKhau);
+        m.xuatMenuCuaGVHoacSinhVien(); 
     }
     
     public void sapXepTangDanTheoNgayLenLop(){    
@@ -1022,8 +1046,8 @@ public class ThoiKhoaBieu {
             System.out.println("Khong the ghi du lieu vao file.");
         }
         System.out.println("Sap xep thanh cong");
-        GiangVien gV = new GiangVien(tenDangNhap, matKhau);
-        gV.xuatMenuCuaGianVien(); 
+        Menu m = new Menu(tenDangNhap, matKhau);
+        m.xuatMenuCuaGVHoacSinhVien(); 
     }
     
     public void sapXepGiamDanTheoNgayLenLop(){    
@@ -1059,8 +1083,8 @@ public class ThoiKhoaBieu {
             System.out.println("Khong the ghi du lieu vao file.");
         }
         System.out.println("Sap xep thanh cong");
-        GiangVien gV = new GiangVien(tenDangNhap, matKhau);
-        gV.xuatMenuCuaGianVien(); 
+        Menu m = new Menu(tenDangNhap, matKhau);
+        m.xuatMenuCuaGVHoacSinhVien(); 
     }
     
     public void capNhatLaiSoThuTuT(){
@@ -1088,8 +1112,8 @@ public class ThoiKhoaBieu {
             System.out.println("Khong the ghi du lieu vao file.");
         }
         System.out.println("Cap nhat thanh cong");
-        GiangVien gV = new GiangVien(tenDangNhap, matKhau);
-        gV.xuatMenuCuaGianVien();
+        Menu m = new Menu(tenDangNhap, matKhau);
+        m.xuatMenuCuaGVHoacSinhVien();
     }
     
     public void capNhatLaiSoThuTuG(){
@@ -1116,7 +1140,7 @@ public class ThoiKhoaBieu {
             System.out.println("Khong the ghi du lieu vao file.");
         }
         System.out.println("Cap nhat thanh cong");
-        GiangVien gV = new GiangVien(tenDangNhap, matKhau);
-        gV.xuatMenuCuaGianVien();
+        Menu m = new Menu(tenDangNhap, matKhau);
+        m.xuatMenuCuaGVHoacSinhVien();
     }
 }

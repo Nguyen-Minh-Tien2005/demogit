@@ -19,17 +19,17 @@ import java.util.Scanner;
  * @author NGUYEN MINH TIEN
  */
 public class DanhSachSinhVien {
-    protected String tenDangNhapCuaGiangVien;
-    protected String matKhauCuaGiangVien;
-    ArrayList<SinhVien> danhSachSinhVien = new ArrayList<SinhVien>();
+    private String tenDangNhap;
+    private String matKhau;
+    private ArrayList<SinhVien> danhSachSinhVien = new ArrayList<SinhVien>();
 
     public DanhSachSinhVien(String tenDangNhapCuaGiangVien, String matKhauCuaGiangVien) {
-        this.tenDangNhapCuaGiangVien = tenDangNhapCuaGiangVien;
-        this.matKhauCuaGiangVien = matKhauCuaGiangVien;
+        this.tenDangNhap = tenDangNhapCuaGiangVien;
+        this.matKhau = matKhauCuaGiangVien;
     }
 
     public void nhapDanhSachSinhVienVaoArrayList() {
-        File fileTaiKhoan = new File("TaiKhoangSinhVien.txt");
+        File fileTaiKhoan = new File("TaiKhoanSinhVien.txt");
         try {
             FileReader fRTaiKhoan = new FileReader(fileTaiKhoan);
             BufferedReader bRTaiKhoang = new BufferedReader(fRTaiKhoan);
@@ -58,10 +58,10 @@ public class DanhSachSinhVien {
         for(int i=0;i<danhSachSinhVien.size();i++){
             System.out.println(danhSachSinhVien.get(i));
         }
-        GiangVien gV = new GiangVien(tenDangNhapCuaGiangVien, matKhauCuaGiangVien);
         System.out.println("Neu xem xong ban chi can nhan mot ki tu xong ban chi can an 1 ky tu xong an enter hoac chi can an enter");
         sc.nextLine();
-        gV.xuatMenuCuaGianVien();
+        Menu m = new Menu(tenDangNhap, matKhau);
+        m.xuatMenuCuaGVHoacSinhVien();
     }
     
     public void timThongTinSinhVien(){
@@ -79,8 +79,8 @@ public class DanhSachSinhVien {
                 System.out.println("Co the ban dang muon thoat(y/n)");
                 String yOrN = sc.nextLine();
                 if(yOrN.equalsIgnoreCase("y")){
-                    GiangVien gV = new GiangVien(tenDangNhapCuaGiangVien, matKhauCuaGiangVien);
-                    gV.xuatMenuCuaGianVien();
+                    Menu m = new Menu(tenDangNhap, matKhau);
+                    m.xuatMenuCuaGVHoacSinhVien();
                     return;
                 }else if(yOrN.equalsIgnoreCase("n")){
                     System.out.println("Vui long nhap ky tu");
@@ -107,8 +107,8 @@ public class DanhSachSinhVien {
                 timThongTinSinhVien();
                 return;
             }else if(coNhapLai.equalsIgnoreCase("n")){
-                GiangVien gV = new GiangVien(tenDangNhapCuaGiangVien,matKhauCuaGiangVien);
-                gV.xuatMenuCuaGianVien();
+                Menu m = new Menu(tenDangNhap, matKhau);
+                m.xuatMenuCuaGVHoacSinhVien();
                 return;
             }else
                 System.out.println("Ban chi duoc nhap y neu la yes hoac n neu la no");
@@ -128,7 +128,7 @@ public class DanhSachSinhVien {
         };
         Collections.sort(danhSachSinhVien,sX);
               try{
-            File file = new File("TaiKhoangSinhVien.txt");
+            File file = new File("TaiKhoanSinhVien.txt");
             FileWriter fR = new FileWriter(file);
             PrintWriter pR = new PrintWriter(fR);
 
@@ -147,8 +147,8 @@ public class DanhSachSinhVien {
             System.out.println("Khong the ghi du lieu vao file.");
         }
         System.out.println("Sap xep thanh cong");
-        GiangVien gV = new GiangVien(tenDangNhapCuaGiangVien, matKhauCuaGiangVien);
-        gV.xuatMenuCuaGianVien(); 
+        Menu m = new Menu(tenDangNhap, matKhau);
+        m.xuatMenuCuaGVHoacSinhVien();
     }
         
     public void sapXepGiamDanTheoHoTen(){    
@@ -164,7 +164,7 @@ public class DanhSachSinhVien {
         };
         Collections.sort(danhSachSinhVien,sX);
               try{
-            File file = new File("TaiKhoangSinhVien.txt");
+            File file = new File("TaiKhoanSinhVien.txt");
             FileWriter fR = new FileWriter(file);
             PrintWriter pR = new PrintWriter(fR);
 
@@ -183,8 +183,8 @@ public class DanhSachSinhVien {
             System.out.println("Khong the ghi du lieu vao file.");
         }
         System.out.println("Sap xep thanh cong");
-        GiangVien gV = new GiangVien(tenDangNhapCuaGiangVien, matKhauCuaGiangVien);
-        gV.xuatMenuCuaGianVien(); 
+        Menu m = new Menu(tenDangNhap, matKhau);
+        m.xuatMenuCuaGVHoacSinhVien(); 
     }
     
     public void sapXepTangDanTheoMSSV(){    
@@ -200,7 +200,7 @@ public class DanhSachSinhVien {
         };
         Collections.sort(danhSachSinhVien,sX);
               try{
-            File file = new File("TaiKhoangSinhVien.txt");
+            File file = new File("TaiKhoanSinhVien.txt");
             FileWriter fR = new FileWriter(file);
             PrintWriter pR = new PrintWriter(fR);
 
@@ -219,8 +219,8 @@ public class DanhSachSinhVien {
             System.out.println("Khong the ghi du lieu vao file.");
         }
         System.out.println("Sap xep thanh cong");
-        GiangVien gV = new GiangVien(tenDangNhapCuaGiangVien, matKhauCuaGiangVien);
-        gV.xuatMenuCuaGianVien(); 
+        Menu m = new Menu(tenDangNhap, matKhau);
+        m.xuatMenuCuaGVHoacSinhVien(); 
     }
     
     public void sapXepGiamDanTheoMSSV(){    
@@ -236,7 +236,7 @@ public class DanhSachSinhVien {
         };
         Collections.sort(danhSachSinhVien,sX);
               try{
-            File file = new File("TaiKhoangSinhVien.txt");
+            File file = new File("TaiKhoanSinhVien.txt");
             FileWriter fR = new FileWriter(file);
             PrintWriter pR = new PrintWriter(fR);
 
@@ -255,8 +255,8 @@ public class DanhSachSinhVien {
             System.out.println("Khong the ghi du lieu vao file.");
         }
         System.out.println("Sap xep thanh cong");
-        GiangVien gV = new GiangVien(tenDangNhapCuaGiangVien, matKhauCuaGiangVien);
-        gV.xuatMenuCuaGianVien(); 
+        Menu m = new Menu(tenDangNhap, matKhau);
+        m.xuatMenuCuaGVHoacSinhVien(); 
     }
     
     public void sapXepTangDanTheoNganh(){    
@@ -272,7 +272,7 @@ public class DanhSachSinhVien {
         };
         Collections.sort(danhSachSinhVien,sX);
               try{
-            File file = new File("TaiKhoangSinhVien.txt");
+            File file = new File("TaiKhoanSinhVien.txt");
             FileWriter fR = new FileWriter(file);
             PrintWriter pR = new PrintWriter(fR);
 
@@ -291,8 +291,8 @@ public class DanhSachSinhVien {
             System.out.println("Khong the ghi du lieu vao file.");
         }
         System.out.println("Sap xep thanh cong");
-        GiangVien gV = new GiangVien(tenDangNhapCuaGiangVien, matKhauCuaGiangVien);
-        gV.xuatMenuCuaGianVien(); 
+        Menu m = new Menu(tenDangNhap, matKhau);
+        m.xuatMenuCuaGVHoacSinhVien(); 
     }
     
     public void sapXepGiamDanTheoNganh(){    
@@ -308,7 +308,7 @@ public class DanhSachSinhVien {
         };
         Collections.sort(danhSachSinhVien,sX);
               try{
-            File file = new File("TaiKhoangSinhVien.txt");
+            File file = new File("TaiKhoanSinhVien.txt");
             FileWriter fR = new FileWriter(file);
             PrintWriter pR = new PrintWriter(fR);
 
@@ -327,8 +327,8 @@ public class DanhSachSinhVien {
             System.out.println("Khong the ghi du lieu vao file.");
         }
         System.out.println("Sap xep thanh cong");
-        GiangVien gV = new GiangVien(tenDangNhapCuaGiangVien, matKhauCuaGiangVien);
-        gV.xuatMenuCuaGianVien(); 
+        Menu m = new Menu(tenDangNhap, matKhau);
+        m.xuatMenuCuaGVHoacSinhVien();
     }
     
     public void sapXepTangDanTheoTaiKhoan(){    
@@ -344,7 +344,7 @@ public class DanhSachSinhVien {
         };
         Collections.sort(danhSachSinhVien,sX);
               try{
-            File file = new File("TaiKhoangSinhVien.txt");
+            File file = new File("TaiKhoanSinhVien.txt");
             FileWriter fR = new FileWriter(file);
             PrintWriter pR = new PrintWriter(fR);
 
@@ -363,8 +363,8 @@ public class DanhSachSinhVien {
             System.out.println("Khong the ghi du lieu vao file.");
         }
         System.out.println("Sap xep thanh cong");
-        GiangVien gV = new GiangVien(tenDangNhapCuaGiangVien, matKhauCuaGiangVien);
-        gV.xuatMenuCuaGianVien(); 
+        Menu m = new Menu(tenDangNhap, matKhau);
+        m.xuatMenuCuaGVHoacSinhVien();
     }
     
     public void sapXepGiamDanTheoTaiKhoan(){    
@@ -380,7 +380,7 @@ public class DanhSachSinhVien {
         };
         Collections.sort(danhSachSinhVien,sX);
               try{
-            File file = new File("TaiKhoangSinhVien.txt");
+            File file = new File("TaiKhoanSinhVien.txt");
             FileWriter fR = new FileWriter(file);
             PrintWriter pR = new PrintWriter(fR);
 
@@ -399,7 +399,7 @@ public class DanhSachSinhVien {
             System.out.println("Khong the ghi du lieu vao file.");
         }
         System.out.println("Sap xep thanh cong");
-        GiangVien gV = new GiangVien(tenDangNhapCuaGiangVien, matKhauCuaGiangVien);
-        gV.xuatMenuCuaGianVien(); 
+        Menu m = new Menu(tenDangNhap, matKhau);
+        m.xuatMenuCuaGVHoacSinhVien(); 
     }
 }

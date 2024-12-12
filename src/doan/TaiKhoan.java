@@ -15,7 +15,7 @@ import java.util.Scanner;
  *
  * @author NGUYEN MINH TIEN
  */
-public class TaiKhoan {
+public class TaiKhoan implements ThongTinNguoiDung{
     protected String tenDangNhap;
     protected String matKhau;
 
@@ -38,14 +38,14 @@ public class TaiKhoan {
     }
     
     
-    public boolean laHocSinh(){
+    public boolean laSinhVien(){
         return tenDangNhap.endsWith("@sinhvien");
     }
     
     boolean kTCoTrungMSSV(String mSSV){
         boolean coTrungMSSV=false;
         try{
-                    File f = new File("TaiKhoangSinhvien.txt");
+                    File f = new File("TaiKhoanSinhvien.txt");
                     FileReader fR = new FileReader(f);
                     BufferedReader bR =new BufferedReader(fR);
                     String thongTinSinhVienTrongFile;
@@ -66,16 +66,40 @@ public class TaiKhoan {
         return coTrungMSSV;
     }
     
-    public boolean coLaSo(String mSSV){
+    boolean kTCoTrungMSGV(String mSGV){
+        boolean coTrungMSSV=false;
+        try{
+                    File f = new File("TaiKhoanGiangVien.txt");
+                    FileReader fR = new FileReader(f);
+                    BufferedReader bR =new BufferedReader(fR);
+                    String thongTinSinhVienTrongFile;
+                    while((thongTinSinhVienTrongFile=bR.readLine())!=null){
+                        if(thongTinSinhVienTrongFile.trim().equals(""))
+                            continue;
+                        String []arrChuaTenDangNhapvaMatKhau=thongTinSinhVienTrongFile.trim().split("[;]+");
+                        if(arrChuaTenDangNhapvaMatKhau[3].equals(mSGV)){
+                            coTrungMSSV=true;
+                            break;
+                        }
+                    }
+                    fR.close();
+                    bR.close();
+                }catch(Exception e){
+                    System.out.println("Khong the mo file de doc");
+                }
+        return coTrungMSSV;
+    }
+    
+    public boolean coLaSo(String so){
         boolean kyTuSo=true;
-        for(int i=0;i<mSSV.length();i++){
-            if(Character.isLetter(mSSV.charAt(i))){
+        for(int i=0;i<so.length();i++){
+            if(Character.isLetter(so.charAt(i))){
                 kyTuSo=false;
             }
         }
             return kyTuSo;
     }
-    public void taoTaiKhoang() {
+    public void taoTaiKhoan() {
         Scanner sc = new Scanner(System.in);
         boolean laSinhVien;
         boolean laGiangVien; 
@@ -83,8 +107,8 @@ public class TaiKhoan {
             boolean taiKhoangCoTonTai=false;
             
         while(true){
-            System.out.println("Tao ten tai khoang phai co @sinhvien nieu la sinh vien/@giangvien nieu la giangvien");
-            System.out.println("Tao ten tai khoang:");
+            System.out.println("Tao ten tai khoan phai co @sinhvien nieu la sinh vien/@giangvien nieu la giangvien");
+            System.out.println("Tao ten tai khoan:");
             tenDangNhap = sc.nextLine();
             if(!tenDangNhap.equals(""))
                 break;
@@ -106,7 +130,7 @@ public class TaiKhoan {
 
             if(laSinhVien){
                 try{
-                    File f = new File("TaiKhoangSinhVien.txt");
+                    File f = new File("TaiKhoanSinhVien.txt");
                     FileReader fR = new FileReader(f);
                     BufferedReader bR =new BufferedReader(fR);
                     String tenDangNhapVaMatKhauTrongFile;
@@ -122,7 +146,7 @@ public class TaiKhoan {
                     fR.close();
                     bR.close();
                     if(taiKhoangCoTonTai)
-                        System.out.println("Tai khoang da ton tai. Vui long doi ten tai khoang khac");
+                        System.out.println("Tai khoan da ton tai. Vui long doi ten tai khoan khac");
                     else{
                         break;
                     }
@@ -132,7 +156,7 @@ public class TaiKhoan {
                 }
             }else if(laGiangVien){
                 try{
-                    File f = new File("TaiKhoangGiangVien.txt");
+                    File f = new File("TaiKhoanGiangVien.txt");
                     FileReader fR = new FileReader(f);
                     BufferedReader bR =new BufferedReader(fR);
                     String thongTinGiangVienTrongFile;
@@ -148,15 +172,15 @@ public class TaiKhoan {
                     fR.close();
                     bR.close();
                     if(taiKhoangCoTonTai)
-                        System.out.println("Tai khoang da ton tai. Vui long doi ten tai khoang khac");
+                        System.out.println("Tai khoan da ton tai. Vui long doi ten tai khoang khac");
                     else
                         break;
                 }catch(Exception e){
                     System.out.println("Khong the mo file de doc");
                 }
             }
-                if(!(tenDangNhap.endsWith("@sinhvien")|| tenDangNhap.endsWith("@giangvien")))
-                System.out.println("Ban tao tai khoang khong dung khuong");
+            if(!(tenDangNhap.endsWith("@sinhvien")|| tenDangNhap.endsWith("@giangvien")))
+                System.out.println("Ban tao tai khoan khong dung khuong");
         }
         if(laSinhVien){
             while(true){
@@ -250,15 +274,15 @@ public class TaiKhoan {
             }
             
             try{
-                File f = new File("TaiKhoangSinhVien.txt");
+                File f = new File("TaiKhoanSinhVien.txt");
                 FileWriter fw = new FileWriter(f,true);
                 PrintWriter pW = new PrintWriter(fw);
                 pW.println(tenDangNhap+";"+matKhau+";"+ten+";"+mSSV+";"+chuyenNganh);
-                System.out.println("Tao tai khoang thanh cong");
+                System.out.println("Tao tai khoan thanh cong");
                 pW.close();
                 fw.close();
             } catch(Exception e){
-                    System.out.println("Khong tim thay file de tao tai khoang");
+                    System.out.println("Khong tim thay file de tao tai khoan");
             }
         }else if(laGiangVien){
             
@@ -301,20 +325,52 @@ public class TaiKhoan {
                 }
             }
             
+            String mSGV;
+            while(true){
+                System.out.println("Nhap ma so giang vien:");
+                mSGV = sc.nextLine();
+                if(!mSGV.equals("")){
+                    try{
+                    if(!kTCoTrungMSGV(mSGV)){
+                    if(coLaSo(mSGV)){
+                        Integer.parseInt(mSGV);
+                        break;
+                    }else
+                        System.out.println("Vui long nhap so");
+                    }else
+                        System.out.println("Ban nhap trung ma so giang vien. Vui long nhap lai");
+                    }catch(Exception e){
+                        System.out.println("Vui long nhap so nguyen");
+                    }
+                }
+                if(mSGV.equals("")){
+                    System.out.println("Co the ban dang muon thoat(y/n)");
+                    String yOrN = sc.nextLine();
+                    if(yOrN.equalsIgnoreCase("y")){
+                        xuatMenu();
+                        return;
+                    }else if(yOrN.equalsIgnoreCase("n")){
+                        System.out.println("Vui long nhap ky tu");
+                        continue;
+                    }else
+                        System.out.println("Ban chi duoc nhap y neu la yes hoac n neu la no");
+                }
+            }
+            
             try{
-            File f = new File("TaiKhoangGiangVien.txt");
+            File f = new File("TaiKhoanGiangVien.txt");
             FileWriter fw = new FileWriter(f,true);
             PrintWriter pW = new PrintWriter(fw);
-            pW.println(tenDangNhap+";"+matKhau+";"+tenGiangvien);
-            System.out.println("Tao tai khoang thanh cong");
+            pW.println(tenDangNhap+";"+matKhau+";"+tenGiangvien+";"+mSGV);
+            System.out.println("Tao tai khoan thanh cong");
             pW.close();
             fw.close();
             } catch(Exception e){
-                    System.out.println("Khong tim thay file de tao tai khoang");
+                    System.out.println("Khong tim thay file de tao tai khoan");
             }
         }
         xuatMenu();
-}
+    }
 
     public void nhapTaiKhoan(){
         Scanner sc = new Scanner(System.in);
@@ -328,7 +384,7 @@ public class TaiKhoan {
             boolean laGiangVien =tenDangNhap.endsWith("@giangvien");
             if(laSinhVien){
                 try{
-                    File f = new File("TaiKhoangSinhVien.txt");
+                    File f = new File("TaiKhoanSinhVien.txt");
                     FileReader fR = new FileReader(f);
                     BufferedReader bR =new BufferedReader(fR);
                     String tenDangNhapVaMatKhauTrongFile;
@@ -350,7 +406,7 @@ public class TaiKhoan {
                 }
             }else if(laGiangVien){
                 try{
-                    File f = new File("TaiKhoangGiangVien.txt");
+                    File f = new File("TaiKhoanGiangVien.txt");
                     FileReader fR = new FileReader(f);
                     BufferedReader bR =new BufferedReader(fR);
                     String tenDangNhapVaMatKhauTrongFile;
@@ -387,19 +443,9 @@ public class TaiKhoan {
             }
 }
     
-    public void phanQuyen(){
-        if(tenDangNhap.endsWith("@sinhvien")){
-            SinhVien sv = new SinhVien(tenDangNhap,matKhau);
-            sv.xuatMenuCuaSinhVien();
-        }else if(tenDangNhap.endsWith("@giangvien")){
-            GiangVien gV = new GiangVien(tenDangNhap, matKhau);
-            gV.xuatMenuCuaGianVien();
-        }
-    }
-    
     public void xuatMenu(){
         Scanner sc =new Scanner(System.in);
-        System.out.println("2. Tao tai khoang:"
+        System.out.println("2. Tao tai khoan:"
                 + "\n1. Dang nhap:"
                 + "\n0. Dong");
         System.out.println("");
@@ -411,21 +457,83 @@ public class TaiKhoan {
                 if(!(0>soCanThucHien || soCanThucHien>3)){
                     break;
                 }
-                System.out.println("Ban phai nhap trong khoang do");
+                System.out.println("Ban phai nhap trong khoan do");
             }catch(Exception e){
                 System.out.println("Vui long nhap so nguyen");
             }
         }
         switch(soCanThucHien)
         {
-            case 2:taoTaiKhoang();
+            case 2:taoTaiKhoan();
                     break;
             case 1:nhapTaiKhoan();
-                    phanQuyen();
+                    Menu m = new Menu(tenDangNhap, matKhau);
+                    m.xuatMenuCuaGVHoacSinhVien();
                     break;
             case 0:return;
         }
     }       
+
+    @Override
+    public void xuatThongTinCaNhan(){
+        Scanner sc = new Scanner(System.in);
+        if(tenDangNhap.endsWith("@sinhvien")){
+            try{
+            File f = new File("TaiKhoanSinhVien.txt");
+            FileReader fR = new FileReader(f);
+            BufferedReader bR =new BufferedReader(fR);
+            String thongTinTrongFile;
+            while((thongTinTrongFile = bR.readLine())!=null){
+                String []arr=thongTinTrongFile.trim().split("[;]+");
+                if(arr[0].equals(tenDangNhap)&& arr[1].equals(matKhau)){
+                    System.out.println("Ho va ten: "+arr[2]);
+                    System.out.println("Ma so sinh vien: "+arr[3]);
+                    System.out.println("Chuyen nganh: "+arr[4]);
+                    System.out.println("Tai khoan: "+arr[0]);
+                    break;
+                }
+            } 
+            fR.close();
+            bR.close();
+            }catch(Exception e){
+                    System.out.println("Khong the mo file TaiKhoanSinhVien.txt de doc");
+            }
+        }else if(tenDangNhap.endsWith("@giangvien")){
+            try{
+            File file = new File("TaiKhoanGiangVien.txt");
+            FileReader fR = new FileReader(file);
+            BufferedReader bR = new BufferedReader(fR);
+            String thongTinCuaGiangVien;
+            
+            while((thongTinCuaGiangVien=bR.readLine())!=null){
+                String arr[]=thongTinCuaGiangVien.trim().split("[;]+");
+                if(arr[0].equals(tenDangNhap)&& arr[1].equals(matKhau)){
+                    System.out.println("Ten giang vien: "+arr[2]);
+                    System.out.println("Ma so giang vien: "+arr[3]);
+                    System.out.println("Tai khoan: "+arr[0]);
+                    break;
+                }
+            }
+            fR.close();
+            bR.close();
+            }catch(Exception e){
+                System.out.println("Khong the mo file");
+            }
+        }
+           
+        System.out.println("Neu xem xong ban chi can nhan mot ki tu xong ban chi can an 1 ky tu xong an enter hoac chi can an enter");
+        sc.nextLine();
+        
+        
+        if(tenDangNhap.endsWith("@sinhvien")){
+            Menu m = new Menu(tenDangNhap, matKhau);
+            m.xuatMenuCuaGVHoacSinhVien();
+        }else if(tenDangNhap.endsWith("@giangvien")){
+            Menu m = new Menu(tenDangNhap, matKhau);
+            m.xuatMenuCuaGVHoacSinhVien();
+        }
+        
+    }
 }
 
 

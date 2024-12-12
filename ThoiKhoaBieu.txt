@@ -1,3 +1,4 @@
-0;SD79804;Nhap mon lap trinh;Thu 6: 1:00 - 3:00;908;Thang6-thang 7
-1;AI12345;Cau truc du lieu va giai thuatt;thu3 9:00-10:10, thu 5 7:00- 9:00;304;Thang 6 den thang 7
-2;AI123456789;Cau truc du lieu va giai thuat;Thu 6:1:30-3:00;509;Thang 6- Thang 7
+0;AI12345;Cau truc du lieu va giai thuatt;thu3 9:00-10:10, thu 5 7:00- 9:00;304;Thang 6 den thang 7
+1;AI123456789;Cau truc du lieu va giai thuat;Thu 6:1:30-3:00;509;Thang 6- Thang 7
+2;SD12345678;Tri tue nhan tao;Thu 7: 1:00 den 3:30;201;thang 9- thang 10
+3;DV1234567 ;Cong nghe;Chu nhat: 7:00-9:30;208;thang 9-thang 10
