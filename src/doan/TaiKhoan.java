@@ -532,7 +532,6 @@ public class TaiKhoan implements ThongTinNguoiDung{
             Menu m = new Menu(tenDangNhap, matKhau);
             m.xuatMenuCuaGVHoacSinhVien();
         }
-        
     }
 }
 
