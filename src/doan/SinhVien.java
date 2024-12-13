@@ -21,7 +21,7 @@ public class SinhVien extends TaiKhoan{
     private String hoVaTen;
     private String mSSV;
     private String nganh;
-    ArrayList<BuoiHoc> tKB = new ArrayList<BuoiHoc>();
+    private ArrayList<BuoiHoc> tKB = new ArrayList<BuoiHoc>();
 
     
 
