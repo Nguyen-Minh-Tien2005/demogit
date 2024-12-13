@@ -216,15 +216,7 @@ public class ThoiKhoaBieu {
             m.xuatMenuCuaGVHoacSinhVien();
         }
     }
-    public boolean coLaSo(String mSSV){
-        boolean kyTuSo=true;
-        for(int i=0;i<mSSV.length();i++){
-            if(Character.isLetter(mSSV.charAt(i))){
-                kyTuSo=false;
-            }
-        }
-            return kyTuSo;
-    }
+   
     public void suaThongTin() {
         tKB.clear();
         capNhatThongTinVaoArrayList();
@@ -235,7 +227,7 @@ public class ThoiKhoaBieu {
             soTT = sc.nextLine();
                 try{
                 if(!soTT.equals("")){
-                    if(coLaSo(soTT)){
+                    if(laSo(soTT)){
                         Integer.parseInt(soTT);
                         break;
                     }else
@@ -380,7 +372,7 @@ public class ThoiKhoaBieu {
 
         if (!found) 
         {
-            System.out.println("Khong tim thay lop hoc hoac mon hoc can sua.");
+            System.out.println("Khong tim thay so thu tu can sua.");
             while(true){
                 System.out.println("Ban muon tiep sua(y,n):");
                 String coNhapLai = sc.nextLine();
