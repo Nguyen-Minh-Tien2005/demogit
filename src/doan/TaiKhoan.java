@@ -528,9 +528,11 @@ public class TaiKhoan implements ThongTinNguoiDung{
         if(tenDangNhap.endsWith("@sinhvien")){
             Menu m = new Menu(tenDangNhap, matKhau);
             m.xuatMenuCuaGVHoacSinhVien();
+            return;
         }else if(tenDangNhap.endsWith("@giangvien")){
             Menu m = new Menu(tenDangNhap, matKhau);
             m.xuatMenuCuaGVHoacSinhVien();
+            return;
         }
     }
 }
