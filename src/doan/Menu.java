@@ -48,7 +48,7 @@ public class Menu {
                 case 3: tKB.timLop();break;
                 case 2: tKB.xuatThoiKhoaBieu(); break;
                 case 1: tTND.xuatThongTinCaNhan(); break;
-                case 0: xuatMenuCuaGVHoacSinhVien(); break;
+                case 0: tK.xuatMenu(); break;
             }
         }else if(tenDangNhap.endsWith("@giangvien")){
             
