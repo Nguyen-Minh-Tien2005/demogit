@@ -13,8 +13,6 @@ import java.util.Scanner;
 public class Menu {
     private String tenDangNhap;
     private String matKhau;
-    private SinhVien sV = new SinhVien(tenDangNhap, matKhau);
-    private GiangVien gV = new GiangVien(tenDangNhap, matKhau);
 
     public Menu(String tenDangNhap, String matKhau) {
         this.tenDangNhap = tenDangNhap;
