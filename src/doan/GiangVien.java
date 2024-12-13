@@ -31,11 +31,8 @@ public class GiangVien extends TaiKhoan {
     public String getTenGiangVien() {
         return tenGiangVien;
     }
-}
 
-
-
-
-    
-    
-    
+    public String getmSGV() {
+        return mSGV;
+    }
+}  
