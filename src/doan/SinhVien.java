@@ -21,7 +21,6 @@ public class SinhVien extends TaiKhoan{
     private String hoVaTen;
     private String mSSV;
     private String nganh;
-    private ArrayList<BuoiHoc> tKB = new ArrayList<BuoiHoc>();
 
     
 
@@ -58,9 +57,6 @@ public class SinhVien extends TaiKhoan{
     public String getMatKhau() {
         return matKhau;
     }
-    
-    
-   
     
     public String toString() { 
 

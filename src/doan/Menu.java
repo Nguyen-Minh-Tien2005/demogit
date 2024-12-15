@@ -19,7 +19,7 @@ public class Menu {
         this.matKhau = matKhau;
     }
     
-    public void xuatMenuCuaGVHoacSinhVien(){
+        public void xuatMenuCuaGVHoacSinhVien(){
         ThongTinNguoiDung tTND = new TaiKhoan(tenDangNhap, matKhau);
         TaiKhoan tK = new TaiKhoan(tenDangNhap, matKhau);
         if(tenDangNhap.endsWith("@sinhvien")){

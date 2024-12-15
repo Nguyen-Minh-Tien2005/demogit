@@ -90,15 +90,7 @@ public class TaiKhoan implements ThongTinNguoiDung{
         return coTrungMSSV;
     }
     
-    public boolean coLaSo(String so){
-        boolean kyTuSo=true;
-        for(int i=0;i<so.length();i++){
-            if(Character.isLetter(so.charAt(i))){
-                kyTuSo=false;
-            }
-        }
-            return kyTuSo;
-    }
+
     public void taoTaiKhoan() {
         Scanner sc = new Scanner(System.in);
         boolean laSinhVien;
@@ -228,11 +220,8 @@ public class TaiKhoan implements ThongTinNguoiDung{
                 if(!mSSV.equals("")){
                     try{
                     if(!kTCoTrungMSSV(mSSV)){
-                    if(coLaSo(mSSV)){
                         Integer.parseInt(mSSV);
                         break;
-                    }else
-                        System.out.println("Vui long nhap so");
                     }else
                         System.out.println("Ban nhap trung ma so sinh vien. Vui long nhap lai");
                     }catch(Exception e){
@@ -332,13 +321,10 @@ public class TaiKhoan implements ThongTinNguoiDung{
                 if(!mSGV.equals("")){
                     try{
                     if(!kTCoTrungMSGV(mSGV)){
-                    if(coLaSo(mSGV)){
-                        Integer.parseInt(mSGV);
-                        break;
-                    }else
-                        System.out.println("Vui long nhap so");
-                    }else
-                        System.out.println("Ban nhap trung ma so giang vien. Vui long nhap lai");
+                            Integer.parseInt(mSGV);
+                            break;
+                        }else
+                            System.out.println("Vui long nhap so");
                     }catch(Exception e){
                         System.out.println("Vui long nhap so nguyen");
                     }
@@ -523,7 +509,6 @@ public class TaiKhoan implements ThongTinNguoiDung{
            
         System.out.println("Neu xem xong ban chi can nhan mot ki tu xong ban chi can an 1 ky tu xong an enter hoac chi can an enter");
         sc.nextLine();
-        
         
         if(tenDangNhap.endsWith("@sinhvien")){
             Menu m = new Menu(tenDangNhap, matKhau);

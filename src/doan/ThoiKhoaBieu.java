@@ -172,7 +172,7 @@ public class ThoiKhoaBieu {
         }
     }
     
-    public int  capNhatThongTinVaoArrayList(){
+    public int capNhatThongTinVaoArrayList(){
         int soTTLonNhat=0;
         try{
         File file = new File("ThoiKhoaBieu.txt");
@@ -199,9 +199,9 @@ public class ThoiKhoaBieu {
         Scanner sc = new Scanner(System.in);
         tKB.clear();
         capNhatThongTinVaoArrayList();
-        BuoiHoc.intieuDe();
+        BuoiHoc.inTieuDe();
         for(int i=0;i<tKB.size();i++){
-            System.out.println(tKB.get(i).toString());
+            System.out.println(tKB.get(i));
         }
         System.out.println("Xuat thanh cong thoi khoa bieu");
         if(tenDangNhap.endsWith("@sinhvien")){
@@ -227,11 +227,8 @@ public class ThoiKhoaBieu {
             soTT = sc.nextLine();
                 try{
                 if(!soTT.equals("")){
-                    if(laSo(soTT)){
                         Integer.parseInt(soTT);
                         break;
-                    }else
-                        System.out.println("Vui long nhap so nguyen");
                 }
             }catch(Exception e){
                     System.out.println("Vui long nhap so nguyen");
@@ -396,9 +393,7 @@ public class ThoiKhoaBieu {
 
                 for (BuoiHoc buoiHoc : tKB) 
                 {
-                    pR.println(String.format("%d;%s;%s;%s;%s;%s",
-                            buoiHoc.getSoThuTu(), buoiHoc.getLop(), buoiHoc.getTenLop(),
-                            buoiHoc.getNgayVaGio(), buoiHoc.getPhong(), buoiHoc.getNgayLenLop()));
+                    pR.println(buoiHoc.khuonTrongFile());
 
                 }
                 System.out.println("Sua thanh cong");
@@ -427,7 +422,7 @@ public class ThoiKhoaBieu {
         
     }
     
-    public void timLop(){
+    public void timLop(){   
         Scanner sc = new Scanner(System.in);
         tKB.clear();
         capNhatThongTinVaoArrayList();
@@ -459,7 +454,7 @@ public class ThoiKhoaBieu {
             }
         }
         System.out.println("\t\t\t\t\t\t\t\t\tTHONG TIN TIM DUOC TRONG THOI KHOA BIEU");
-         System.out.println(String.format("%-10s      %-15s          %-45s     %-50s     %-5s          %-60s",
+        System.out.println(String.format("%-10s      %-15s          %-45s     %-50s     %-5s          %-60s",
                 "So thu tu","Lop","Ten lop","Ngay va gio","Phong","Ngay len lop"));
         boolean ketQua = false;
         for (int i = 0; i < tKB.size(); i++) {
@@ -505,25 +500,25 @@ public class ThoiKhoaBieu {
                 else{
                     tKB.clear();
                 }
-            try{
-                File file = new File("ThoiKhoaBieu.txt");
-                FileWriter fR = new FileWriter(file);
-                PrintWriter pR = new PrintWriter(fR);
+                try{
+                    File file = new File("ThoiKhoaBieu.txt");
+                    FileWriter fR = new FileWriter(file);
+                    PrintWriter pR = new PrintWriter(fR);
 
-                for (BuoiHoc buoiHoc : tKB) 
-                {
-                    pR.println(String.format("%d;%s;%s;%s;%s;%s",
-                            buoiHoc.getSoThuTu(), buoiHoc.getLop(), buoiHoc.getTenLop(),
-                            buoiHoc.getNgayVaGio(), buoiHoc.getPhong(), buoiHoc.getNgayLenLop()));
+                    for (BuoiHoc buoiHoc : tKB) 
+                    {
+                        pR.println(buoiHoc.khuonTrongFile());
 
+                    }
+                    System.out.println("Xoa thanh cong");
+                    fR.close();
+                    pR.close();
+                }catch(Exception e){
+                        System.out.println("Khong the mo file");
                 }
-                System.out.println("Xoa thanh cong");
-                fR.close();
-                pR.close();
-            }catch(Exception e){
-                    System.out.println("Khong the mo file");
-            }
-            return;
+                Menu m = new Menu(tenDangNhap, matKhau);
+                m.xuatMenuCuaGVHoacSinhVien();
+                return;
             }else if(coNhapLai.equalsIgnoreCase("n")){
                 Menu m = new Menu(tenDangNhap, matKhau);
                 m.xuatMenuCuaGVHoacSinhVien();
@@ -532,15 +527,6 @@ public class ThoiKhoaBieu {
                 System.out.println("Ban chi duoc nhap y neu la yes hoac n neu la no");
         }
         
-    }
-    public boolean laSo(String mSSV){
-        boolean kyTuSo=true;
-        for(int i=0;i<mSSV.length();i++){
-            if(Character.isLetter(mSSV.charAt(i))){
-                kyTuSo=false;
-            }
-        }
-            return kyTuSo;
     }
     //@Overloanding
     public void xoa(String viTri){
@@ -553,11 +539,8 @@ public class ThoiKhoaBieu {
             sTT = sc.nextLine();
             if(!sTT.equals("")){
                 try{
-                    if(laSo(sTT)){
                         Integer.parseInt(sTT);
                         break;
-                    }else
-                            System.out.println("Vui long nhap so");
                 }catch(Exception e){
                     System.out.println("Vui long nhap so nguyen");
                 }
@@ -596,9 +579,7 @@ public class ThoiKhoaBieu {
 
             for (BuoiHoc buoiHoc : tKB) 
             {
-                pR.println(String.format("%d;%s;%s;%s;%s;%s",
-                        buoiHoc.getSoThuTu(), buoiHoc.getLop(), buoiHoc.getTenLop(),
-                        buoiHoc.getNgayVaGio(), buoiHoc.getPhong(), buoiHoc.getNgayLenLop()));
+                pR.println(buoiHoc.khuonTrongFile());
 
             }
             
@@ -648,9 +629,7 @@ public class ThoiKhoaBieu {
 
             for (BuoiHoc buoiHoc : tKB) 
             {
-                pR.println(String.format("%d;%s;%s;%s;%s;%s",
-                        buoiHoc.getSoThuTu(), buoiHoc.getLop(), buoiHoc.getTenLop(),
-                        buoiHoc.getNgayVaGio(), buoiHoc.getPhong(), buoiHoc.getNgayLenLop()));
+                pR.println(buoiHoc.khuonTrongFile());
 
             }
             System.out.println("sua thanh cong");
@@ -691,9 +670,7 @@ public class ThoiKhoaBieu {
 
             for (BuoiHoc buoiHoc : tKB) 
             {
-                pR.println(String.format("%d;%s;%s;%s;%s;%s",
-                        buoiHoc.getSoThuTu(), buoiHoc.getLop(), buoiHoc.getTenLop(),
-                        buoiHoc.getNgayVaGio(), buoiHoc.getPhong(), buoiHoc.getNgayLenLop()));
+                pR.println(buoiHoc.khuonTrongFile());
 
             }
             System.out.println("sua thanh cong");
@@ -728,9 +705,7 @@ public class ThoiKhoaBieu {
 
             for (BuoiHoc buoiHoc : tKB) 
             {
-                pR.println(String.format("%d;%s;%s;%s;%s;%s",
-                        buoiHoc.getSoThuTu(), buoiHoc.getLop(), buoiHoc.getTenLop(),
-                        buoiHoc.getNgayVaGio(), buoiHoc.getPhong(), buoiHoc.getNgayLenLop()));
+                pR.println(buoiHoc.khuonTrongFile());
 
             }
             System.out.println("sua thanh cong");
@@ -765,9 +740,7 @@ public class ThoiKhoaBieu {
 
             for (BuoiHoc buoiHoc : tKB) 
             {
-                pR.println(String.format("%d;%s;%s;%s;%s;%s",
-                        buoiHoc.getSoThuTu(), buoiHoc.getLop(), buoiHoc.getTenLop(),
-                        buoiHoc.getNgayVaGio(), buoiHoc.getPhong(), buoiHoc.getNgayLenLop()));
+                pR.println(buoiHoc.khuonTrongFile());
 
             }
             System.out.println("sua thanh cong");
@@ -802,9 +775,7 @@ public class ThoiKhoaBieu {
 
             for (BuoiHoc buoiHoc : tKB) 
             {
-                pR.println(String.format("%d;%s;%s;%s;%s;%s",
-                        buoiHoc.getSoThuTu(), buoiHoc.getLop(), buoiHoc.getTenLop(),
-                        buoiHoc.getNgayVaGio(), buoiHoc.getPhong(), buoiHoc.getNgayLenLop()));
+                pR.println(buoiHoc.khuonTrongFile());
 
             }
             System.out.println("sua thanh cong");
@@ -839,9 +810,7 @@ public class ThoiKhoaBieu {
 
             for (BuoiHoc buoiHoc : tKB) 
             {
-                pR.println(String.format("%d;%s;%s;%s;%s;%s",
-                        buoiHoc.getSoThuTu(), buoiHoc.getLop(), buoiHoc.getTenLop(),
-                        buoiHoc.getNgayVaGio(), buoiHoc.getPhong(), buoiHoc.getNgayLenLop()));
+                pR.println(buoiHoc.khuonTrongFile());
 
             }
             System.out.println("sua thanh cong");
@@ -876,9 +845,7 @@ public class ThoiKhoaBieu {
 
             for (BuoiHoc buoiHoc : tKB) 
             {
-                pR.println(String.format("%d;%s;%s;%s;%s;%s",
-                        buoiHoc.getSoThuTu(), buoiHoc.getLop(), buoiHoc.getTenLop(),
-                        buoiHoc.getNgayVaGio(), buoiHoc.getPhong(), buoiHoc.getNgayLenLop()));
+                pR.println(buoiHoc.khuonTrongFile());
 
             }
             System.out.println("sua thanh cong");
@@ -913,9 +880,7 @@ public class ThoiKhoaBieu {
 
             for (BuoiHoc buoiHoc : tKB) 
             {
-                pR.println(String.format("%d;%s;%s;%s;%s;%s",
-                        buoiHoc.getSoThuTu(), buoiHoc.getLop(), buoiHoc.getTenLop(),
-                        buoiHoc.getNgayVaGio(), buoiHoc.getPhong(), buoiHoc.getNgayLenLop()));
+                pR.println(buoiHoc.khuonTrongFile());
 
             }
             System.out.println("sua thanh cong");
@@ -950,9 +915,7 @@ public class ThoiKhoaBieu {
 
             for (BuoiHoc buoiHoc : tKB) 
             {
-                pR.println(String.format("%d;%s;%s;%s;%s;%s",
-                        buoiHoc.getSoThuTu(), buoiHoc.getLop(), buoiHoc.getTenLop(),
-                        buoiHoc.getNgayVaGio(), buoiHoc.getPhong(), buoiHoc.getNgayLenLop()));
+                pR.println(buoiHoc.khuonTrongFile());
 
             }
             System.out.println("sua thanh cong");
@@ -987,9 +950,7 @@ public class ThoiKhoaBieu {
 
             for (BuoiHoc buoiHoc : tKB) 
             {
-                pR.println(String.format("%d;%s;%s;%s;%s;%s",
-                        buoiHoc.getSoThuTu(), buoiHoc.getLop(), buoiHoc.getTenLop(),
-                        buoiHoc.getNgayVaGio(), buoiHoc.getPhong(), buoiHoc.getNgayLenLop()));
+                pR.println(buoiHoc.khuonTrongFile());
 
             }
             System.out.println("sua thanh cong");
@@ -1024,9 +985,7 @@ public class ThoiKhoaBieu {
 
             for (BuoiHoc buoiHoc : tKB) 
             {
-                pR.println(String.format("%d;%s;%s;%s;%s;%s",
-                        buoiHoc.getSoThuTu(), buoiHoc.getLop(), buoiHoc.getTenLop(),
-                        buoiHoc.getNgayVaGio(), buoiHoc.getPhong(), buoiHoc.getNgayLenLop()));
+                pR.println(buoiHoc.khuonTrongFile());
 
             }
             System.out.println("sua thanh cong");
@@ -1061,9 +1020,7 @@ public class ThoiKhoaBieu {
 
             for (BuoiHoc buoiHoc : tKB) 
             {
-                pR.println(String.format("%d;%s;%s;%s;%s;%s",
-                        buoiHoc.getSoThuTu(), buoiHoc.getLop(), buoiHoc.getTenLop(),
-                        buoiHoc.getNgayVaGio(), buoiHoc.getPhong(), buoiHoc.getNgayLenLop()));
+                pR.println(buoiHoc.khuonTrongFile());
 
             }
             System.out.println("sua thanh cong");

@@ -66,6 +66,7 @@ public class DanhSachSinhVien {
     
     public void timThongTinSinhVien(){
         Scanner sc = new Scanner(System.in);
+        danhSachSinhVien.clear();
         nhapDanhSachSinhVienVaoArrayList();
     
         Scanner tenSinhVien = new Scanner(System.in);
@@ -89,7 +90,7 @@ public class DanhSachSinhVien {
                     System.out.println("Ban chi duoc nhap y neu la yes hoac n neu la no");
             }
         }
-        inTieuDe();
+            inTieuDe();
         boolean ketQua = false;
         for (int i = 0; i < danhSachSinhVien.size(); i++) {
             SinhVien sinhVien = danhSachSinhVien.get(i);

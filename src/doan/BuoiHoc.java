@@ -75,7 +75,13 @@ public class BuoiHoc {
         this.ngayLenLop = ngayLenLop;
     }
     
-    public static void intieuDe(){
+    public String khuonTrongFile()
+    {
+       return String.format("%d;%s;%s;%s;%s;%s",
+                            getSoThuTu(), getLop(), getTenLop(),
+                            getNgayVaGio(),getPhong(), getNgayLenLop());
+    }
+    public static void inTieuDe(){
         System.out.println("\t\t\t\t\t\t\t\t\tTHOI KHOA BIEU");
         System.out.println(String.format("%-10s      %-15s          %-45s     %-50s     %-5s          %-60s",
                 "So thu tu","Lop","Ten lop","Ngay va gio","Phong","Ngay len lop"));
