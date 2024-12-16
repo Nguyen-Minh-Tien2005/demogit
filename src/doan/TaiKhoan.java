@@ -521,6 +521,3 @@ public class TaiKhoan implements ThongTinNguoiDung{
         }
     }
 }
-
-
-      
