@@ -162,6 +162,7 @@ public class ThoiKhoaBieu {
                         capNhatThongTinVaoArrayList();
                         Menu m = new Menu(tenDangNhap, matKhau);
                         m.xuatMenuCuaGVHoacSinhVien();
+                        return;
                     }else
                         System.out.println("Ban chi duoc nhap y neu la yes hoac n neu la no");
                 }
