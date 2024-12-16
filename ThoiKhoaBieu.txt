@@ -1,4 +1,5 @@
-0;12222222222;sdf;sdf;sdf;sdf
-1;SD234567;Lap trinh huong duoi tuong;Thu 2:3:50 - 6:00 va thu 6:7:00 - 9:00;506;Thang 6 - Thang 7
-2;SD79804;Nhap mon lap trinh;Thu 6: 1:00 - 3:00;908;Thang6-thang 7
-3;SD56754;Co so lap trinh;Thu 5: 7:00 - 9:00;408;Thang 6 - Thang 7
+4;dsfgdsfgsd;dsgfsdg;sfsf;dsfg;dsfg
+0;DG12345678;Mac Le Nin;Thu 5:3:00-6:00;608;Thang 6 den thang 7
+1;AI5689532;TIn hoc co ban ;Thu 3:9:00-12:20;567;Thang 6 - thang 7
+3;SD1908643;Cau truc du lieu va giai thuat;Thu 7:12:20 - 3:00;567;thang 7 den thangg 7
+2;SD12345678;Da banh;thu 6:7:00 -9:00;505;Thang 6 den thang 7
