@@ -181,13 +181,15 @@ public class ThoiKhoaBieu {
         String line;
             while((line = bR.readLine())!=null){
                 if(line.trim().equals(""))
-                    continue;
+                   continue; 
                 String []arr = line.split("[;]+");
                 tKB.add(new BuoiHoc(Integer.parseInt(arr[0]), arr[1], arr[2],arr[3],arr[4],arr[5]));
                 soTTLonNhat=(soTTLonNhat<Integer.parseInt(arr[0]))?Integer.parseInt(arr[0]):soTTLonNhat;
             }
         fR.close();
         bR.close();
+        if(tKB.isEmpty())
+            return -1;
         }catch(Exception e){
             System.out.println("Khong tim thay file de viet");
         }
@@ -371,7 +373,7 @@ public class ThoiKhoaBieu {
         {
             System.out.println("Khong tim thay so thu tu can sua.");
             while(true){
-                System.out.println("Ban muon tiep sua(y,n):");
+                System.out.println("Ban muon tiep tuc sua(y,n):");
                 String coNhapLai = sc.nextLine();
                 if(coNhapLai.equalsIgnoreCase("y")){
                     suaThongTin();
