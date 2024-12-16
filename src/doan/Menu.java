@@ -46,7 +46,7 @@ public class Menu {
             ThoiKhoaBieu tKB = new ThoiKhoaBieu(tenDangNhap, matKhau);
             switch(soCanThucHien){
                 case 3: tKB.timLop();break;
-                case 2: tKB.xuatThoiKhoaBieu(); break;
+                case 2: tKB.xuatThoiKhoaBieu(); 
                 case 1: tTND.xuatThongTinCaNhan(); break;
                 case 0: tK.xuatMenu(); break;
             }
