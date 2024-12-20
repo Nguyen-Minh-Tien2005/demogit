@@ -113,8 +113,7 @@ public class TaiKhoan implements ThongTinNguoiDung{
                 }else if(yOrN.equalsIgnoreCase("n")){
                     System.out.println("Vui long nhap ky tu");
                     continue;
-                }else
-                    System.out.println("Ban chi duoc nhap y neu la yes hoac n neu la no");
+                }
             }
         }
             laSinhVien =tenDangNhap.endsWith("@sinhvien");
