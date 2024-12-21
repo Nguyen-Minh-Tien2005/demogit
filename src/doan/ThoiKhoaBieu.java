@@ -472,7 +472,7 @@ public class ThoiKhoaBieu {
         while(true){
             System.out.println("Ban muon tiep tuc tim kiem(y,n):");
             String coNhapLai = sc.nextLine();
-            if(coNhapLai.equalsIgnoreCase("y")){
+                if(coNhapLai.equalsIgnoreCase("y")){
                 timLop();
                 return;
             }else if(coNhapLai.equalsIgnoreCase("n")){
